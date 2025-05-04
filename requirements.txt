@@ -2,3 +2,4 @@ scikit-learn
 pandas
 spacy
 notebook
+spacytextblob # M. Tschochner, 20250504

@@ -18,6 +18,22 @@ Examples here
 
 ### Installation
 
+Spacy is used
+
+
+pip install spacy --> add to requirements.txt
+python -m spacy download en_core_web_sm
+
+import spacy
+nlp = spacy.load('en_core_web_sm')
+
+Sentiment analysis the following needs to be added:
+
+pip install spacytextblob --> add to requirements.txt
+Downloading the respective data
+python -m textblob.download_corpora
+from spacytextblob.spacytextblob import SpacyTextBlob
+
 Step by step explanation of how to get a dev environment running.
 
 List out the steps
