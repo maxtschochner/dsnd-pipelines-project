@@ -1,71 +1,61 @@
-# README Template
+# Project Title: StyleSense Recommendation Forcasting Pipeline
 
-Below is a template provided for use when building your README file for students.
+The project is part of the 3rd student assignment for the Udacity Course "Data Scientist". Topic is to build a pipeline on historic data of a fashion company called StyleSense to predict customer recommendations based on a number of features.
 
-# Project Title
+The original features:
 
-Project description goes here.
+* Clothing ID: Integer Categorical variable that refers to the specific piece being reviewed.
+* Age: Positive Integer variable of the reviewers age.
+* Title: String variable for the title of the review.
+* Review Text: String variable for the review body.
+* Positive Feedback Count: Positive Integer documenting the number of other customers who found this review positive.
+* Division Name: Categorical name of the product high level division.
+* Department Name: Categorical name of the product department name.
+* Class Name: Categorical name of the product class name.
 
-## Getting Started
+The features are further processed in a machine learning pipeline, which includes a sentiment analysis of the Title feature, which is quite computation intensive.
 
-Instructions for how to get a copy of the project running on your local machine.
+The target:
+* Recommended IND: Binary variable stating where the customer recommends the product where 1 is recommended, 0 is not recommended.
 
-### Dependencies
+# Getting Started
 
+The project contains the following project files:
+* iPython notebook with the whole pipeline, including data exploration and fine tuning: "StyleSense_Forcasting.ipynb".
+* Provided data for the assigment: "reviews.csv".
+* A requirements file containing the necessary packages for the virtual environment: "requirements.txt".
+
+# Dependencies
+
+The pipeline needs the following python packages, as also listed in the "requirements.txt" file:
+* scikit-learn: For building the pipline.
+* pandas: For data processing.
+* spacy: For NLP text processing.
+* notebook: For iPython notebook functionality.
+* spacytextblob: For sentinment analysis of the Title feature.
+
+# Installation
+
+A virtual environment first needs to be installed:
+```bash
+pip install -r requirements.txt
 ```
-Examples here
-```
 
-### Installation
-
-Spacy is used
-
-
-pip install spacy --> add to requirements.txt
+Further for spaCy NLP and sentiment analysis respective data has to be loaded (also part of the notebook):
+```bash
 python -m spacy download en_core_web_sm
-
-import spacy
-nlp = spacy.load('en_core_web_sm')
-
-Sentiment analysis the following needs to be added:
-
-pip install spacytextblob --> add to requirements.txt
-Downloading the respective data
 python -m textblob.download_corpora
-from spacytextblob.spacytextblob import SpacyTextBlob
-
-Step by step explanation of how to get a dev environment running.
-
-List out the steps
-
-```
-Give an example here
 ```
 
-## Testing
+This only has to be done once.
 
-Explain the steps needed to run any automated tests
+# Important Notes
 
-### Break Down Tests
+* Sentiment analysis with "spacytextblob" package doesn't run in parallel.
+* Sentiment analysis is computational intensive. To run the project on a laptop in reasonable time, sentiment analysis is restricted to the Title feature.
+* For the sentiment analysis the input and output data of the transformer had to be reshaped to work properly.
+* For prediction a sklearn LogisticRegression model is used.
 
-Explain what each test does and why
-
-```
-Examples here
-```
-
-## Project Instructions
-
-This section should contain all the student deliverables for this project.
-
-## Built With
-
-* [Item1](www.item1.com) - Description of item
-* [Item2](www.item2.com) - Description of item
-* [Item3](www.item3.com) - Description of item
-
-Include all items used to build project.
-
-## License
+# License
 
 [License](LICENSE.txt)
