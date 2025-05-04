@@ -55,6 +55,7 @@ This only has to be done once.
 * Sentiment analysis is computational intensive. To run the project on a laptop in reasonable time, sentiment analysis is restricted to the Title feature.
 * For the sentiment analysis the input and output data of the transformer had to be reshaped to work properly.
 * For prediction a sklearn LogisticRegression model is used.
+* There is a future warning issued during the pipeline run "FutureWarning: This Pipeline instance is not fitted yet.". However, the pipeline is fitted and shows respective prediction results.
 
 # License
 
